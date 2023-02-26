@@ -12,13 +12,9 @@ func TestConnectWhereConditions(t *testing.T) {
 		AuthorId: "123123",
 		Title:    "123123",
 	}
-
-	/*
-		1. 反射不能使用指针类型！
-
-	*/
-	where, queryMap, slice, _ := ConnectWhereConditions[models.GetPostListByFilterParams](params)
+	where, queryMap, namedQueryMap, namedQuerySlice := ConnectWhereConditions(params)
 	fmt.Println(where)
 	fmt.Println(queryMap)
-	fmt.Println(slice)
+	fmt.Println(namedQueryMap)
+	fmt.Println(namedQuerySlice)
 }
